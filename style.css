@@ -1,0 +1,236 @@
+/* ============================================================================
+   Shyft public site — one stylesheet for index / privacy_policy / support.
+   Tokens traced to the app (ShiftDesignSystem.swift); site-local values are
+   marked. Contrast ratios were computed against #FAF0DF (WCAG 2.x):
+   ink-90 13.66:1 · ink-65 5.85:1 · link #8A5A2B 5.20:1 · hover #6E4720 7.19:1.
+   #C79938 (accentAmber) is 2.31:1 — ornament only, never text or focus.
+   ========================================================================== */
+
+@font-face {
+  font-family: "Switzer";
+  src: url("switzer-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Switzer";
+  src: url("switzer-600.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light; /* keeps force-dark / smart-invert off the parchment */
+  --parchment: #FAF0DF;      /* ShiftPalette.parchment */
+  --card: #FFF7F2;           /* ShiftPalette.elevated  */
+  --ink: #0D0D14;            /* ShiftPalette.ink       */
+  --ink-90: #252428;         /* textPrimary (0.90)     */
+  --ink-65: #605C5B;         /* textDarkSec (0.65)     */
+  --rule: #E4D3BC;           /* site-local hairline    */
+  --rule-strong: #E0C39C;    /* site-local card border */
+  --ochre: #C79938;          /* accentAmber — non-text */
+  --ochre-tint: #F2E2C4;     /* accentAmber @0.16 over parchment */
+  --ochre-stroke: #DEC083;   /* accentAmber @0.55 over parchment */
+  --link: #8A5A2B;
+  --link-hover: #6E4720;
+  --measure: 33rem;          /* ≈70 characters at 17px Switzer */
+  --frame: 40rem;            /* tables and cards only */
+  --font: "Switzer", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--parchment);
+  color: var(--ink-90);
+  font: 400 17px/1.62 var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  max-width: var(--frame);
+  margin: 0 auto;
+  padding: 48px 24px 96px;
+}
+.measure { max-width: var(--measure); }
+
+/* ── Links, focus ─────────────────────────────────────────────────────────── */
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+a:hover { color: var(--link-hover); text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 3px; }
+
+.skip-link {
+  position: absolute; left: -9999px; top: 12px;
+  background: var(--card); padding: 8px 14px; border-radius: 8px;
+}
+.skip-link:focus-visible { left: 12px; z-index: 10; }
+
+/* ── Header wordmark (inner pages) ───────────────────────────────────────── */
+.brand { display: flex; justify-content: space-between; align-items: baseline; }
+.brand a {
+  color: var(--ink); text-decoration: none;
+  font-size: 17px; font-weight: 600;
+}
+.brand a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--link);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.25em;
+}
+
+/* ── Type ─────────────────────────────────────────────────────────────────── */
+h1 {
+  font-size: clamp(27px, 1.4rem + 1.5vw, 34px);
+  line-height: 1.18; font-weight: 600; letter-spacing: -0.022em;
+  color: var(--ink); margin: 26px 0 8px;
+}
+h2 {
+  font-size: clamp(19px, 1.1rem + 0.6vw, 21px);
+  line-height: 1.32; font-weight: 600; letter-spacing: -0.01em;
+  color: var(--ink); margin: 48px 0 12px;
+}
+h3 { font-size: 17px; line-height: 1.45; font-weight: 600; color: var(--ink); margin: 28px 0 8px; }
+p { margin: 0 0 1.125rem; }
+ul, ol { padding-left: 19px; margin: 0 0 1.125rem; }
+li { margin: 0 0 7px; }
+strong { color: var(--ink); }
+em { font-style: italic; }
+.meta { font-size: 15px; line-height: 1.5; color: var(--ink-65); margin: 0 0 34px; }
+
+/* ── "On this page" ──────────────────────────────────────────────────────── */
+.toc {
+  columns: 2; column-gap: 32px;
+  padding: 0; margin: 0 0 8px; list-style: none;
+  font-size: 15px; line-height: 1.5;
+}
+.toc li { margin: 0 0 6px; break-inside: avoid; }
+@media (max-width: 560px) { .toc { columns: 1; } }
+
+/* ── Cards ────────────────────────────────────────────────────────────────── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--rule-strong);
+  border-radius: 14px;
+  padding: 22px 26px;
+  margin: 24px 0;
+}
+.card > :first-child { margin-top: 0; }
+.card > :last-child { margin-bottom: 0; }
+
+.safety {
+  background: var(--ochre-tint);     /* the app's own emphasis idiom */
+  border-color: var(--ochre-stroke);
+  margin-top: 32px;
+}
+.safety h2 { margin: 0 0 12px; }
+.safety a { color: var(--link-hover); }
+
+/* ── Data table (privacy §3) ─────────────────────────────────────────────── */
+.table-wrap { margin: 18px 0 24px; }
+.table-wrap:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
+table { border-collapse: collapse; width: 100%; font-size: 15px; line-height: 1.5; }
+thead th {
+  font-size: 11px; line-height: 1.4; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.18em;
+  color: var(--ink-65); text-align: left;
+  padding: 0 14px 10px 0;
+  border-bottom: 1px solid var(--rule-strong);
+  background: none;
+}
+td {
+  padding: 13px 14px 13px 0;
+  vertical-align: top;
+  border-bottom: 1px solid var(--rule);
+}
+tbody tr:last-child td { border-bottom: none; }
+td:first-child { width: 40%; color: var(--ink); }
+
+@media (max-width: 640px) {
+  /* Stacked rows. display:block strips native table semantics, so the markup
+     carries explicit role="table"/"row"/"cell" attributes to keep them. */
+  table, tbody, tr, td { display: block; width: auto; }
+  thead { display: none; }  /* td::before repeats the labels; keep both and AT hears them twice */
+  tr { padding: 14px 0; border-bottom: 1px solid var(--rule); }
+  tr:last-child { border-bottom: none; }
+  td { padding: 0 0 8px; border: none; width: auto; }
+  td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 11px; line-height: 1.4; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.18em;
+    color: var(--ink-65);
+    margin-bottom: 3px;
+  }
+}
+@media (min-width: 641px) {
+  .table-wrap { overflow-x: auto; }
+}
+
+/* ── code ─────────────────────────────────────────────────────────────────── */
+code {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  padding: 0.1rem 0.3rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* ── Footer ───────────────────────────────────────────────────────────────── */
+footer {
+  margin-top: 72px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-65);
+}
+footer p { margin: 0 0 6px; }
+
+/* ── Index page ───────────────────────────────────────────────────────────── */
+.index-body {
+  min-height: 100svh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 72px 24px 64px;
+}
+.wordmark {
+  font-size: clamp(38px, 1.75rem + 2.6vw, 46px);
+  line-height: 1.05; font-weight: 600; letter-spacing: -0.03em;
+  color: var(--ink); margin: 0 0 10px;
+}
+.tagline {
+  font-size: clamp(19px, 1rem + 0.9vw, 22px);
+  line-height: 1.4; letter-spacing: -0.01em;
+  color: var(--ink-90); margin: 0;
+}
+.index-blurb { max-width: 430px; margin: 28px auto 0; }
+.cta {
+  display: inline-block;
+  background: var(--ink); color: var(--parchment);
+  text-decoration: none;
+  font-size: 16px; font-weight: 600;
+  padding: 15px 34px; border-radius: 14px;
+}
+.cta:hover { color: var(--parchment); background: #252428; text-decoration: none; }
+.index-links {
+  display: flex; gap: 8px; align-items: center; justify-content: center;
+  font-size: 15px; color: var(--ink-65);
+  margin-top: 14px; flex-wrap: wrap;
+}
+.index-footer {
+  margin-top: 84px; padding-top: 22px;
+  border-top: 1px solid var(--rule);
+  max-width: 460px;
+  font-size: 14px; line-height: 1.6; color: var(--ink-65);
+}
+.index-footer p { margin: 0 0 10px; }
+.index-footer p:last-child { margin-bottom: 0; }

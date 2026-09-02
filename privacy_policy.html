@@ -3,296 +3,174 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="What the Shyft iOS app stores, what leaves your device, who processes it, and your rights under UK data protection law.">
+<meta name="theme-color" content="#FAF0DF">
 <title>Shyft — Privacy Policy</title>
-<!--
-  NOT LEGAL ADVICE. Drafted from what the app verifiably does. Every claim below
-  was checked against the code on 2026-08-29 and then re-checked by five
-  independent adversarial passes, which overturned six claims in the first draft.
-  It has NOT been reviewed by a solicitor. Have it signed off, with the in-app AI
-  consent gate and a DPIA, before launch.
-
-  Fill every double-brace placeholder before publishing; publish.sh and CI both
-  refuse to ship them.
-
-  DEVELOPER WARNINGS — this page stops being true the moment any of these change:
-
-  1. Cloud insights are DORMANT. ShiftCloudReasoningService would send context
-     snapshots (incl. HealthKit-derived stressScore / hadPoorSleep /
-     isLowActivityDay, verbatim calendar event titles and raw check-in text) to
-     our API and on to Anthropic. Every call is gated by
-     ShiftCloudLLMBudget.canAfford -> ShiftBackendLLMService.isReady, which is
-     `isEnabled && userHasConsented`; both persist in UserDefaults, default to
-     false and are never set to true anywhere in the app. Flip either one and the
-     "Apple Health data is not sent to us" and "event titles are not uploaded"
-     paragraphs below become false. Same for PrivacyInfo.xcprivacy and the App
-     Store nutrition label.
-  2. Motion is not described here because CoreMotion features are switched off
-     (ShiftActivityManager.swift:78, motionFeaturesEnabled = false) while the app
-     still asks for the permission. Either re-enable the feature and document it,
-     or drop requestMotion() and NSMotionUsageDescription.
-  3. The shared-link web player loads fonts from fonts.googleapis.com and
-     api.fontshare.com (shyft-share-worker/src/index.js:388-392, 497-501), which
-     discloses the recipient's IP to Google and Fontshare. Self-host the fonts and
-     this page needs no third-country font vendor disclosure.
-
-  Keep in agreement: this page, Shyft/PrivacyInfo.xcprivacy, the App Privacy
-  answers in App Store Connect, and the NS*UsageDescription strings in the Xcode
-  project. If one changes, change all four.
--->
-<style>
-  :root { color-scheme: light; }
-  body {
-    margin: 0 auto; padding: 2.5rem 1.25rem 5rem; max-width: 46rem;
-    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    color: #23201c; background: #faf7f2;
-  }
-  h1 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 .4rem; letter-spacing: -.02em; }
-  h2 { font-size: 1.15rem; margin: 2.4rem 0 .6rem; letter-spacing: -.01em; }
-  h3 { font-size: 1rem; margin: 1.6rem 0 .4rem; }
-  p, li { color: #3a352e; }
-  ul { padding-left: 1.2rem; }
-  li { margin: .35rem 0; }
-  a { color: #8a5a2b; }
-  .meta { color: #7a736a; font-size: .9rem; margin: 0 0 2rem; }
-  table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: .93rem; display: block; overflow-x: auto; }
-  th, td { border: 1px solid #e3ddd3; padding: .55rem .7rem; text-align: left; vertical-align: top; }
-  th { background: #f2ede4; font-weight: 600; }
-  footer { margin-top: 3.5rem; padding-top: 1.2rem; border-top: 1px solid #e3ddd3; font-size: .9rem; color: #7a736a; }
-  code { background: #f2ede4; padding: .1rem .3rem; border-radius: 3px; font-size: .9em; }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<a class="skip-link" href="#content">Skip to content</a>
+<div class="page">
 
-<h1>Shyft — Privacy Policy</h1>
-<p class="meta">Last updated {{EFFECTIVE_DATE}} · Applies to the Shyft iOS app and its widget</p>
+  <div class="brand"><a href="index.html">Shyft</a></div>
 
-<p>Shyft helps you take a short guided moment — a “shyft” — to change how you feel. This policy explains
-exactly what the app stores, what leaves your device, and who processes it. It is written to be specific
-rather than generic: every item below corresponds to something the app really does.</p>
+  <h1>Privacy Policy</h1>
+  <p class="meta">Effective from {{EFFECTIVE_DATE}} &middot; Applies to the Shyft iOS app and its widget</p>
 
-<h2>1. Who is responsible for your data</h2>
-<p>{{LEGAL_ENTITY}} (“we”) is the data controller for the personal data described here.</p>
-<ul>
-  <li>Postal address: {{POSTAL_ADDRESS}}</li>
-  <li>Contact for privacy questions: <a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a></li>
-</ul>
+  <div class="measure" id="content">
+  <p>Shyft helps you take a short guided moment&nbsp;&mdash; a &ldquo;shyft&rdquo;&nbsp;&mdash; to change how you feel. This policy explains what the app stores, what leaves your device, and who processes it. We have tried to describe what the app actually does rather than write something generic, as the app works at the effective date above. If you think something is missing or wrong, please tell us.</p>
 
-<h2>2. You need an account</h2>
-<p>After the introduction, Shyft asks you to sign in with Apple or Google. An account is what
-lets your library, streaks and settings follow you to another device. The one thing that works
-without signing in is opening a shyft that someone has shared with you.</p>
+  <h2 style="margin-top: 32px;">On this page</h2>
+  <ul class="toc">
+    <li><a href="#controller">1. Who is responsible for your data</a></li>
+    <li><a href="#account">2. You need an account</a></li>
+    <li><a href="#collect">3. What we collect, and why</a></li>
+    <li><a href="#not-do">4. What we do not do</a></li>
+    <li><a href="#processors">5. Who processes data on our behalf</a></li>
+    <li><a href="#legal-bases">6. Our legal bases</a></li>
+    <li><a href="#retention">7. How long we keep it</a></li>
+    <li><a href="#deletion">8. Deleting your data</a></li>
+    <li><a href="#rights">9. Your rights</a></li>
+    <li><a href="#children">10. Children</a></li>
+    <li><a href="#security">11. Security, and what to put in</a></li>
+    <li><a href="#wellbeing">12. Wellbeing</a></li>
+    <li><a href="#changes">13. Changes</a></li>
+  </ul>
 
-<h2>3. What we collect, and why</h2>
+  <h2 id="controller">1. Who is responsible for your data</h2>
+  <p>{{LEGAL_ENTITY}} (&ldquo;we&rdquo;) is the data controller for the personal data described here.</p>
+  <ul>
+    <li>Postal address: {{POSTAL_ADDRESS}}</li>
+    <li>Contact for privacy questions, rights requests and complaints: <a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a></li>
+  </ul>
 
-<table>
-  <tr><th>Data</th><th>When</th><th>Why</th></tr>
-  <tr>
-    <td>Your email address, the account ID we generate, and your name if Apple or Google supplies one</td>
-    <td>When you sign in</td>
-    <td>To run your account and link your library to you</td>
-  </tr>
-  <tr>
-    <td>A random identifier we generate for your device, and your IP address</td>
-    <td>Every time the app calls our API</td>
-    <td>To apply free-usage limits and to stop the AI features being abused</td>
-  </tr>
-  <tr>
-    <td>Your library and how you use it: favourites, streaks, session and app-open history, moods you log, audio settings, when your free trial started, and the IDs of items you have deleted</td>
-    <td>While signed in</td>
-    <td>So your progress survives a new phone</td>
-  </tr>
-  <tr>
-    <td>The shyfts you make yourself — their titles and scripts, the text you typed to create them, and the on-device transcript and summary of any voice note behind them</td>
-    <td>While signed in</td>
-    <td>So the moments you made are available on your other devices</td>
-  </tr>
-  <tr>
-    <td>Places you save (Home, Work, Gym): the name and address you enter, their coordinates, and any note you write about why that place matters</td>
-    <td>Only if you set up saved places</td>
-    <td>To recognise where you are and to restore your places on a new device</td>
-  </tr>
-  <tr>
-    <td>Your answers to the setup questions: goals, triggers, difficult times of day, lifestyle tags, and your usual wake, sleep and working hours</td>
-    <td>While signed in</td>
-    <td>To choose which moments to suggest</td>
-  </tr>
-  <tr>
-    <td>What you write or say when you ask Shyft for a moment, and what you type into search</td>
-    <td>When you create a moment, search, or Shyft prepares a suggestion for you in the background</td>
-    <td>To write the script, the voice-over and the artwork, and to find the right existing moment</td>
-  </tr>
-  <tr>
-    <td>A short profile we build from your past sessions — your first name, your occupation, the people and pressures you have mentioned, recent events, and one-line summaries of your last few shyfts with your ratings</td>
-    <td>Sent with each AI request</td>
-    <td>So a new moment follows on from the last one instead of starting cold</td>
-  </tr>
-  <tr>
-    <td>Audio you record</td>
-    <td>When you share a moment you made, and when you ask Shyft to re-voice a recording</td>
-    <td>To host the shared audio, and to perform the voice change you asked for</td>
-  </tr>
-  <tr>
-    <td>The name and message you attach when you send a shyft to someone</td>
-    <td>When you send one</td>
-    <td>Stored with the link so the recipient can see who it is from</td>
-  </tr>
-  <tr>
-    <td>Usage counters and your remaining credits</td>
-    <td>Every AI request</td>
-    <td>To keep you inside the free allowance and to stop runaway costs</td>
-  </tr>
-  <tr>
-    <td>Crash, freeze and performance diagnostics</td>
-    <td>When the app crashes, hangs or errors</td>
-    <td>To find and fix faults</td>
-  </tr>
-</table>
+  <h2 id="account">2. You need an account</h2>
+  <p>After the introduction, Shyft asks you to sign in with Apple or Google. An account is what lets your library, streaks and settings follow you to another device. The one thing that works without signing in is opening a shyft that someone has shared or gifted to you.</p>
 
-<h3>Apple Health stays on your device</h3>
-<p>If you grant access, Shyft reads heart rate and heart rate variability, resting heart rate,
-respiratory rate, steps, workouts and sleep from Apple Health, and uses them on your device to
-decide which moment to suggest. Those readings are not sent to our servers and are not included
-in your account backup. Shyft never writes anything into Apple Health. You can withdraw access
-at any time in <em>Settings → Privacy &amp; Security → Health</em>.</p>
+  <h2 id="collect">3. What we collect, and why</h2>
+  </div>
 
-<h3>Calendar, microphone and speech</h3>
-<ul>
-  <li><strong>Calendar</strong> — read on your device so Shyft can offer a moment before a meeting
-    and understand the shape of your week. Your event titles are not sent to our servers. With
-    your separate permission, Shyft can also add a scheduled shyft to your calendar.</li>
-  <li><strong>Microphone</strong> — used when you record a voice note and when you speak to Shyft
-    to describe what you need.</li>
-  <li><strong>Speech recognition</strong> — what you say is turned into text using Apple's speech
-    recognition. Depending on your device, language and the feature you are using, that audio may
-    be processed on Apple's servers rather than on your device. The resulting text is then used
-    like anything else you type: it can be sent to our AI providers to write your moment or to
-    choose its artwork.</li>
-  <li><strong>Weather</strong> — to know the weather where you are, Shyft asks Apple's weather
-    service, which means your coordinates are sent to Apple.</li>
-</ul>
+  <div class="table-wrap" role="region" aria-label="What we collect, and why" tabindex="0">
+  <table role="table">
+    <thead role="rowgroup">
+      <tr role="row"><th role="columnheader" scope="col">Data</th><th role="columnheader" scope="col">When</th><th role="columnheader" scope="col">Why</th></tr>
+    </thead>
+    <tbody role="rowgroup">
+      <tr role="row"><td role="cell" data-label="Data">Your email address, the account ID we generate, and your name if Apple or Google supplies one</td><td role="cell" data-label="When">When you sign in</td><td role="cell" data-label="Why">To run your account and link your library to you</td></tr>
+      <tr role="row"><td role="cell" data-label="Data">A random identifier we generate for your device, and your IP address</td><td role="cell" data-label="When">Every time the app calls our API</td><td role="cell" data-label="Why">To apply free-usage limits and to stop the AI features being abused</td></tr>
+      <tr role="row"><td role="cell" data-label="Data">Your library and how you use it: favourites, streaks, session and app-open history, moods you log, audio settings, when your free trial started, and the IDs of items you have deleted</td><td role="cell" data-label="When">While signed in</td><td role="cell" data-label="Why">So your progress survives a new phone</td></tr>
+      <tr role="row"><td role="cell" data-label="Data">The shyfts you make yourself &mdash; their titles and scripts, the text you typed to create them, and the on-device transcript and summary of any voice note behind them</td><td role="cell" data-label="When">While signed in</td><td role="cell" data-label="Why">So the moments you made are available on your other devices</td></tr>
+      <tr role="row"><td role="cell" data-label="Data">Your answers to the setup questions: goals, triggers, difficult times of day, lifestyle tags, and your usual wake, sleep and working hours</td><td role="cell" data-label="When">While signed in</td><td role="cell" data-label="Why">To choose which moments to suggest</td></tr>
+      <tr role="row"><td role="cell" data-label="Data">What you write or say when you ask Shyft for a moment, and what you type into search</td><td role="cell" data-label="When">When you create a moment, search, or Shyft prepares a suggestion for you in the background</td><td role="cell" data-label="Why">To write the script, the voice-over and the artwork, and to find the right existing moment</td></tr>
+      <tr role="row"><td role="cell" data-label="Data">A short profile we build from your past sessions &mdash; your first name, your occupation, the people and pressures you have mentioned, recent events, and one-line summaries of your last few shyfts with your ratings</td><td role="cell" data-label="When">Sent with each AI request</td><td role="cell" data-label="Why">So a new moment follows on from the last one instead of starting cold</td></tr>
+      <tr role="row"><td role="cell" data-label="Data">Audio you record</td><td role="cell" data-label="When">When you share a moment you made, and when you ask Shyft to re-voice a recording</td><td role="cell" data-label="Why">To host the shared audio, and to perform the voice change you asked for</td></tr>
+      <tr role="row"><td role="cell" data-label="Data">The name and message you attach when you send a shyft to someone</td><td role="cell" data-label="When">When you send one</td><td role="cell" data-label="Why">Stored with the link so the recipient can see who it is from</td></tr>
+      <tr role="row"><td role="cell" data-label="Data">Usage counters and your remaining credits</td><td role="cell" data-label="When">Every AI request</td><td role="cell" data-label="Why">To keep you inside the free allowance and to stop runaway costs</td></tr>
+      <tr role="row"><td role="cell" data-label="Data">Crash, freeze and performance diagnostics</td><td role="cell" data-label="When">When the app crashes, hangs or errors &mdash; and continuously while you use the app, for performance traces</td><td role="cell" data-label="Why">To find faults and keep the app working</td></tr>
+    </tbody>
+  </table>
+  </div>
 
-<h3>Diagnostics can include a screenshot</h3>
-<p>Reports about crashes, freezes and errors include a screenshot and a description of the screen
-at that moment, so we can see what went wrong. Anything visible on screen can appear in it,
-including text you had written and, on the account screen, your email address. Reports carry your
-account ID; we do not send your name or email address as separate fields. We also collect
-performance traces, which include the addresses of the requests the app makes.</p>
+  <div class="measure">
+  <h3>Apple Health stays on your device</h3>
+  <p>If you grant access, Shyft reads heart rate and heart rate variability, resting heart rate, respiratory rate, steps, workouts and sleep from Apple Health, and uses them on your device to decide which moment to suggest. Those readings are not sent to our servers and are not included in your account backup. Shyft never writes anything into Apple Health. You can withdraw access at any time in <em>Settings &rarr; Privacy &amp; Security &rarr; Health</em>.</p>
 
-<h2>4. What we never do</h2>
-<ul>
-  <li>We do not track you across other apps or websites, and we show no advertising. There is no
-    advertising or analytics SDK in the app.</li>
-  <li>We do not sell or rent your personal data, and we do not share it with data brokers.</li>
-  <li>We do not send your Apple Health readings to our servers or to anyone else.</li>
-  <li>Feedback you send about a moment is stored without your user ID, so we cannot trace it back
-    to you — which also means we cannot delete an individual piece of feedback on request. Please
-    do not put personal details in it.</li>
-</ul>
+  <h3>Calendar, microphone, speech and motion</h3>
+  <ul>
+    <li><strong>Calendar</strong> &mdash; read on your device so Shyft can offer a moment before a meeting and understand the shape of your week. Your event titles are not sent to our servers. With your separate permission, Shyft can also add a scheduled shyft to your calendar.</li>
+    <li><strong>Microphone</strong> &mdash; used when you record a voice note and when you speak to Shyft to describe what you need.</li>
+    <li><strong>Speech recognition</strong> &mdash; what you say is turned into text using Apple&rsquo;s speech recognition. Depending on your device, language and the feature you are using, that audio may be processed on Apple&rsquo;s servers rather than on your device. The resulting text is then used like anything else you type: it can be sent to our AI providers to write your moment or to choose its artwork.</li>
+    <li><strong>Motion</strong> &mdash; your iPhone&rsquo;s motion sensors are read on your device, to sense things like whether you are still, restless or lying down, which helps time suggestions. iOS does not require a permission for this kind of reading, and motion readings are not sent to our servers.</li>
+  </ul>
 
-<h2>5. Who processes data on our behalf</h2>
-<ul>
-  <li><strong>Supabase</strong> — your account and the synced library described above.</li>
-  <li><strong>Cloudflare</strong> — our API, the usage counters, share and gift links, and storage
-    for the audio and artwork we generate for you.</li>
-  <li><strong>Anthropic</strong> — receives what you write or say when you ask for a moment, your
-    search queries, and the short profile built from your past sessions, and writes the script.</li>
-  <li><strong>OpenAI</strong> — draws the artwork. It receives only a short description of the
-    scene, written by Anthropic's model; your own words are not passed to it.</li>
-  <li><strong>ElevenLabs</strong> — turns the finished script into speech. If you ask Shyft to
-    re-voice one of your own recordings, ElevenLabs also receives that recording itself.</li>
-  <li><strong>Sentry</strong> — crash, freeze and performance diagnostics.</li>
-  <li><strong>Apple</strong> — the App Store handles your purchase and subscription, and we never
-    see your payment details. If iCloud is switched on, Apple also holds a synced copy of your
-    library and settings, and your recordings sit in your own iCloud Drive. Apple's speech and
-    weather services receive the data described above.</li>
-</ul>
-<p>One more, outside the app: the web page that plays a shyft someone shared with you loads its
-fonts from Google Fonts and Fontshare, so opening a shared link discloses your IP address to
-those two services.</p>
-<p>Some of these providers are based outside the UK, mainly in the United States. Where data is
-transferred internationally it is protected by the transfer safeguards in those providers'
-terms, including standard contractual clauses and the UK addendum.</p>
+  <h3>Diagnostics can include a screenshot</h3>
+  <p>Reports about crashes, freezes and errors include a screenshot and a description of the screen at that moment, so we can see what went wrong. Anything visible on screen can appear in it, including text you had written and, on the account screen, your email address. Reports carry your account ID; we do not send your name or email address as separate fields. We also collect performance traces, which include the addresses of the requests the app makes.</p>
 
-<h2>6. Our legal bases (UK GDPR)</h2>
-<ul>
-  <li><strong>Performance of a contract</strong> — running your account, syncing your library, delivering
-    the content you ask for.</li>
-  <li><strong>Legitimate interests</strong> — keeping the app stable and secure, and preventing abuse of
-    the generation features.</li>
-  <li><strong>Consent</strong> — access to Apple Health, location, calendar, microphone and notifications,
-    and sending what you write to third-party AI providers. You can withdraw any of these at any time in
-    iOS Settings or in the app; withdrawing consent stops that feature, not the whole app.</li>
-</ul>
+  <h2 id="not-do">4. What we do not do</h2>
+  <ul>
+    <li>We do not track you across other apps or websites, and we show no advertising. There is no advertising SDK and no third-party product-analytics or attribution SDK in the app; the one third-party SDK we use is for the crash and performance diagnostics described above.</li>
+    <li>We do not sell or rent your personal data, and we do not share it with data brokers.</li>
+    <li>We do not send your Apple Health readings to our servers or to anyone else.</li>
+    <li>Feedback you send about a moment is stored without your user ID, in an anonymous feed that is not private. We cannot find, correct or delete an individual piece of it unless you can quote what you wrote. Please do not put personal details in it.</li>
+  </ul>
 
-<h2>7. How long we keep it</h2>
-<ul>
-  <li><strong>Your account and synced library</strong> — until you delete your account.</li>
-  <li><strong>Audio and artwork we generated for you</strong> — kept indefinitely in our storage
-    under a random file name. It is not listed anywhere and is not linked to your account, but
-    anyone holding the exact link can play it.</li>
-  <li><strong>Links you share from our library</strong> — expire automatically after 24 hours.</li>
-  <li><strong>Links to moments you made yourself</strong> — stay live until you revoke them, so
-    that the person you sent one to can still open it later.</li>
-  <li><strong>Shyfts you send as a gift</strong> — the link, your name and your message expire
-    after 30 days.</li>
-  <li><strong>Usage counters used to prevent abuse</strong> — expire on their own, at most after
-    35 days.</li>
-  <li><strong>Feedback</strong> — kept indefinitely, without any user ID.</li>
-  <li><strong>Diagnostics</strong> — deleted on our diagnostics provider's retention schedule.</li>
-</ul>
+  <h2 id="processors">5. Who processes data on our behalf</h2>
+  <ul>
+    <li><strong>Supabase</strong> &mdash; your account and the synced library described above.</li>
+    <li><strong>Cloudflare</strong> &mdash; our API, the usage counters, share and gift links, and storage for the audio and artwork we generate for you.</li>
+    <li><strong>Anthropic</strong> &mdash; receives what you write or say when you ask for a moment, your search queries, and the short profile built from your past sessions, and writes the script.</li>
+    <li><strong>OpenAI</strong> &mdash; draws the artwork. It receives only a short description of the scene, written by Anthropic&rsquo;s model; your own words are not passed to it.</li>
+    <li><strong>ElevenLabs</strong> &mdash; turns the finished script into speech. If you ask Shyft to re-voice one of your own recordings, ElevenLabs also receives that recording itself.</li>
+    <li><strong>Sentry</strong> &mdash; crash, freeze and performance diagnostics.</li>
+    <li><strong>Apple</strong> &mdash; the App Store handles your purchase and subscription, and we never see your payment details. If iCloud is switched on, Apple also holds a synced copy of your library and settings, and your recordings sit in your own iCloud Drive. Apple&rsquo;s speech recognition receives the audio described above.</li>
+  </ul>
+  <p>One more, outside the app: the web page that plays a shyft someone shared with you loads its fonts from Google (Google Fonts, including fonts.gstatic.com) and Fontshare, so opening a shared link discloses your IP address to those services.</p>
+  <p>Each of these providers processes data under a written data processing agreement. Some are based outside the UK, mainly in the United States; for those transfers we rely on the safeguards in our agreements with them, such as the UK International Data Transfer Addendum to the EU standard contractual clauses. You can ask us for more detail about the safeguards that apply to a particular provider.</p>
+  <p>Which providers we use may change; when one is replaced, this page is updated as described in section 13. This policy covers only Shyft. It does not cover Apple, Google, or any other site or service you reach from a link in the app or on this page; those have their own privacy policies.</p>
 
-<h2>8. Deleting your data</h2>
-<p>You can delete your account in the app, in <em>Settings → Account → Delete account</em>. That
-removes your profile, your synced library and saved places, your credit balance and your
-generation history from our database, and it cannot be undone. Anything held only on your device
-goes when you delete the app.</p>
-<p>Two things deliberately survive it, and you may need to ask us about them:</p>
-<ul>
-  <li>The audio and artwork we generated for you. Those files are stored under random names and
-    are no longer connected to you, so account deletion does not reach them.</li>
-  <li>Any share links you have created. Revoke those first, in <em>Settings → Shared by You</em>.
-    Revoking deletes the uploaded audio as well. Note that this list lives on the device you sent
-    the link from — if you have since reinstalled the app or changed phone, the app can no longer
-    revoke it and you will need to email us.</li>
-</ul>
-<p>For either of those, or if you would rather we did the whole thing for you, write to
-<a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a>.</p>
+  <h2 id="legal-bases">6. Our legal bases (UK GDPR)</h2>
+  <ul>
+    <li><strong>Performance of a contract</strong> &mdash; running your account, syncing your library, and creating and delivering the content you ask for, including sending what you write or say to our AI providers when you ask Shyft to make something for you.</li>
+    <li><strong>Legitimate interests</strong> &mdash; keeping the app stable and secure, and preventing abuse of the generation features.</li>
+    <li><strong>Consent</strong> &mdash; access to Apple Health, your calendar, the microphone and notifications. You can withdraw any of these at any time in iOS Settings; withdrawing consent stops that feature, not the whole app, and does not affect anything done before you withdrew it.</li>
+    <li><strong>Explicit consent</strong> &mdash; where what you write or say describes your health or state of mind, we ask for your explicit consent before it is sent to our AI providers.</li>
+  </ul>
+  <p>Some of Shyft&rsquo;s suggestions are produced automatically, including one that can prepare a new moment for you without you asking. These decide which piece of audio to offer you, and when. They produce no legal effect and nothing similarly significant, so the restrictions on significant automated decisions in UK GDPR Articles 22A&ndash;22D do not apply.</p>
 
-<h2>9. Your rights</h2>
-<p>You have the right to ask for a copy of your data, to have it corrected or deleted, to restrict or
-object to how we use it, and to receive it in a portable form. Write to
-<a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a> and we will respond within one month.</p>
-<p>If you are unhappy with our response, you can complain to the UK Information Commissioner's Office at
-<a href="https://ico.org.uk/make-a-complaint/">ico.org.uk</a>, or to the data protection authority where
-you live.</p>
+  <h2 id="retention">7. How long we keep it</h2>
+  <ul>
+    <li><strong>Your account and synced library</strong> &mdash; until you delete your account.</li>
+    <li><strong>Audio and artwork we generated for you</strong> &mdash; kept in our storage under a random file name. It is not listed anywhere and is not held against your account, but anyone holding the exact link can play it. We have no automated process that deletes these files; if you send us the exact links, we will remove them.</li>
+    <li><strong>Links you share from our library</strong> &mdash; expire automatically after 24 hours.</li>
+    <li><strong>Links to moments you made yourself</strong> &mdash; stay live until you revoke them, so that the person you sent one to can still open it later.</li>
+    <li><strong>Shyfts you send as a gift</strong> &mdash; the link, your name and your message expire after 30 days. The generated audio behind a gift stays in storage as described above.</li>
+    <li><strong>Usage counters used to prevent abuse</strong> &mdash; expire on their own, at most after 35 days.</li>
+    <li><strong>Feedback</strong> &mdash; kept indefinitely, without any user ID.</li>
+    <li><strong>Diagnostics</strong> &mdash; kept on our diagnostics provider&rsquo;s retention schedule, typically around 90 days.</li>
+  </ul>
+  <p>We may keep information for longer where the law requires it, or where we need it to establish, exercise or defend a legal claim.</p>
 
-<h2>10. Children</h2>
-<p>Shyft is not intended for children under {{MINIMUM_AGE}}. We do not knowingly collect data from them.
-If you believe a child has given us personal data, contact us and we will delete it.</p>
+  <h2 id="deletion">8. Deleting your data</h2>
+  <p>You can delete your account in the app, in <em>Settings &rarr; Account &rarr; Delete account</em>. That removes your profile, your synced library, your credit balance and your generation history from our database, and it cannot be undone. Anything held only on your device goes when you delete the app; recordings saved to your iCloud Drive stay there until you delete them yourself.</p>
+  <p>Two things deliberately survive it:</p>
+  <ul>
+    <li>The audio and artwork we generated for you. Those files are stored under random names and are not held against your account, so account deletion does not reach them. If you can give us the exact links, we will remove them on request.</li>
+    <li>Any share links you have created. Revoke those first, in <em>Settings &rarr; Shared by You</em>. Revoking deletes the uploaded audio as well. That list lives on the device you sent the links from &mdash; if you have since reinstalled the app or changed phone, the app can no longer revoke them.</li>
+  </ul>
+  <p>For either of those, or if you would rather we carried out the deletion, you may contact us at <a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a>, quoting the share link where there is one. We handle such requests as erasure requests under section 9.</p>
 
-<h2>11. Security</h2>
-<p>Your data travels over encrypted connections, and the database enforces per-user access rules
-so one account cannot read another's. Your sign-in credentials are held in the iOS Keychain on
-your device.</p>
-<p>Two deliberate exceptions, so that links work for people who do not have the app: the audio
-and artwork we generate, and any recording you share, are served from a public address without a
-password. The addresses are long and random and are never listed, but anyone you send one to can
-pass it on. No system is perfectly secure, and access to production data is limited to those who
-need it.</p>
+  <h2 id="rights">9. Your rights</h2>
+  <p>You can ask us for a copy of the personal data we hold about you, and you can ask us to correct it, delete it, restrict how we use it, or object to how we use it. You can also ask us to send your data to another service where that applies, and withdraw consent where we rely on it. Write to <a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a>.</p>
+  <p><strong>How quickly we respond.</strong> We will respond without undue delay and in any event within one month. If your request is complex, or if you have made a number of requests, we may extend that by up to two further months; if we do, we will tell you within the first month and explain why.</p>
+  <p><strong>When the month starts.</strong> If we need to confirm who you are before we can safely act, the month starts once we have what we asked for. Separately, if you have asked for a copy of your data and we reasonably need you to tell us what you are looking for, we will ask &mdash; and the clock pauses from the day we ask until the day you reply, then picks up where it left off.</p>
+  <p><strong>What we search.</strong> When you ask for a copy of your data, you are entitled to what we can provide after a reasonable and proportionate search.</p>
+  <p><strong>Cost.</strong> Responding is free. If a request is manifestly unfounded or excessive, or if you ask for further copies of data we have already given you, we may charge a reasonable fee or decline to act &mdash; and if we do, we will tell you why and how to challenge it.</p>
+  <p><strong>If you are unhappy.</strong> You can complain to us directly at <a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a>. We will acknowledge your complaint within 30 days and respond without undue delay. You can also complain to the UK Information Commissioner&rsquo;s Office at <a href="https://ico.org.uk/make-a-complaint/">ico.org.uk</a>, or to the data protection authority where you live.</p>
 
-<h2>12. Wellbeing</h2>
-<p>Shyft supports everyday wellbeing. It is not a medical device, it does not diagnose or treat any
-condition, and it is not a substitute for professional care. If you are struggling, please speak to a
-doctor or a support service — see our <a href="support.html">support page</a> for details.</p>
+  <h2 id="children">10. Children</h2>
+  <p>Shyft is not intended for children under {{MINIMUM_AGE}}, and we do not knowingly collect data from them. If you believe a child has given us personal data, contact us and we will delete it as the law requires.</p>
 
-<h2>13. Changes</h2>
-<p>If this policy changes, we will update the date at the top of this page, and tell you in the app if the
-change is significant.</p>
+  <h2 id="security">11. Security, and what to put in</h2>
+  <p>Your data travels over encrypted connections, and the database enforces per-user access rules designed to ensure one account cannot read another&rsquo;s &mdash; the anonymous feedback feed described in section 4 is the exception, which is why it carries no user ID. Your sign-in credentials are held in the iOS Keychain on your device.</p>
+  <p>Two deliberate exceptions, so that links work for people who do not have the app: the audio and artwork we generate, and any recording you share, are served from a public address without a password. The addresses are long and random and are never listed, but anyone you send one to can pass it on &mdash; treat a link you have shared as public. Keeping your device, and the Apple or Google account you sign in with, secure is your responsibility.</p>
+  <p>No system is perfectly secure. Access to production data is limited to those who need it, but we cannot guarantee that data will never be lost or disclosed.</p>
+  <p>Shyft asks how you are feeling, so what you type or say to it may be personal. Please send only what you are comfortable having processed by the providers listed in section 5, and think twice before including details about other people.</p>
 
-<footer>
-  <p>Shyft · <a href="support.html">Support</a> · <a href="index.html">Home</a><br>
-  Questions: <a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a></p>
-</footer>
+  <h2 id="wellbeing">12. Wellbeing &mdash; Shyft is not medical care</h2>
+  <p>Shyft supports everyday wellbeing. It is not a medical device, it is not a health or medical service, and it is not regulated as one. It does not diagnose, treat, cure, monitor or prevent any condition, and it does not give medical, psychological, therapeutic, legal or other professional advice. Using it creates no clinician&ndash;patient or other professional relationship, and no part of it is monitored by a person.</p>
+  <p>Shyft&rsquo;s scripts, audio and artwork include material produced automatically by AI models. That material can be inaccurate, incomplete, or unsuitable for your situation. What Shyft suggests, when it suggests it, and anything it appears to infer about how you are feeling are generalisations, not an assessment of you.</p>
+  <p>You use Shyft at your own discretion and are responsible for how you act on it. Nothing in the app is a reason to ignore or delay advice from a qualified professional, or to start, stop or change any treatment. If you are struggling, please speak to a doctor or a support service.</p>
+  <p>Shyft is not for emergencies and cannot get help for you. If you are in crisis, or if someone is in danger, contact your local emergency services &mdash; 999 in the UK &mdash; or a crisis line. Our <a href="support.html#help-now">support page</a> lists the numbers we know of.</p>
 
+  <h2 id="changes">13. Changes</h2>
+  <p>We may update this policy. When we do, the updated version is posted on this page with a new effective date, and that version applies from that date. Where the law requires us to notify you of a change, or to ask again for your consent, we will. We may also point out a significant change in the app.</p>
+
+  <footer>
+    <p>Shyft &middot; <a href="support.html">Support</a> &middot; <a href="index.html">Home</a> &middot; <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a></p>
+    <p>{{LEGAL_ENTITY}} &middot; {{POSTAL_ADDRESS}} &middot; <a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a></p>
+  </footer>
+  </div>
+
+</div>
 </body>
 </html>
