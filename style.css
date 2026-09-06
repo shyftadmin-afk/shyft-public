@@ -73,12 +73,6 @@ a:hover { color: var(--link-hover); text-decoration-thickness: 2px; }
 }
 .skip-link:focus-visible { left: 12px; z-index: 10; }
 
-/* ── Header wordmark lockup (inner pages) ────────────────────────────────── */
-.brand-lockup { margin: 0 0 6px; }
-.brand-lockup a { display: inline-block; text-decoration: none; }
-.brand-lockup a:hover { opacity: 0.8; }
-.brand-lockup img { display: block; height: 96px; width: auto; }
-
 /* ── Type ─────────────────────────────────────────────────────────────────── */
 h1 {
   font-size: clamp(27px, 1.4rem + 1.5vw, 34px);

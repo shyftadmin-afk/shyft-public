@@ -57,11 +57,11 @@
       <tr role="row"><td role="cell" data-label="Data">Your email address, the account ID we generate, and your name if Apple or Google supplies one</td><td role="cell" data-label="When">When you sign in</td><td role="cell" data-label="Why">To run your account and link your library to you</td></tr>
       <tr role="row"><td role="cell" data-label="Data">A random identifier we generate for your device, and your IP address</td><td role="cell" data-label="When">Every time the app calls our API</td><td role="cell" data-label="Why">To apply free-usage limits and to stop the AI features being abused</td></tr>
       <tr role="row"><td role="cell" data-label="Data">Your library and how you use it: favourites, streaks, session and app-open history, moods you log, audio settings, when your free trial started, and the IDs of items you have deleted</td><td role="cell" data-label="When">While signed in</td><td role="cell" data-label="Why">So your progress survives a new phone</td></tr>
-      <tr role="row"><td role="cell" data-label="Data">The shyfts you make yourself &mdash; their titles and scripts, the text you typed to create them, and the on-device transcript and summary of any voice note behind them</td><td role="cell" data-label="When">While signed in</td><td role="cell" data-label="Why">So the moments you made are available on your other devices</td></tr>
+      <tr role="row"><td role="cell" data-label="Data">The shyfts you make yourself &mdash; their titles and scripts, the text you typed to create them, and the on-device transcript and summary of any recording behind them</td><td role="cell" data-label="When">While signed in</td><td role="cell" data-label="Why">So the moments you made are available on your other devices</td></tr>
       <tr role="row"><td role="cell" data-label="Data">Your answers to the setup questions: goals, triggers, difficult times of day, lifestyle tags, and your usual wake, sleep and working hours</td><td role="cell" data-label="When">While signed in</td><td role="cell" data-label="Why">To choose which moments to suggest</td></tr>
-      <tr role="row"><td role="cell" data-label="Data">What you write or say when you ask Shyft for a moment, and what you type into search</td><td role="cell" data-label="When">When you create a moment, search, or Shyft prepares a suggestion for you in the background</td><td role="cell" data-label="Why">To write the script, the voice-over and the artwork, and to find the right existing moment</td></tr>
+      <tr role="row"><td role="cell" data-label="Data">What you write or say when you ask Shyft for a moment</td><td role="cell" data-label="When">When you create a moment</td><td role="cell" data-label="Why">To write the script, the voice-over and the artwork, and to find the right existing moment</td></tr>
       <tr role="row"><td role="cell" data-label="Data">A short profile we build from your past sessions &mdash; your first name, your occupation, the people and pressures you have mentioned, recent events, and one-line summaries of your last few shyfts with your ratings</td><td role="cell" data-label="When">Sent with each AI request</td><td role="cell" data-label="Why">So a new moment follows on from the last one instead of starting cold</td></tr>
-      <tr role="row"><td role="cell" data-label="Data">Audio you record</td><td role="cell" data-label="When">When you share a moment you made, and when you ask Shyft to re-voice a recording</td><td role="cell" data-label="Why">To host the shared audio, and to perform the voice change you asked for</td></tr>
+      <tr role="row"><td role="cell" data-label="Data">Audio you record</td><td role="cell" data-label="When">When you share a moment you made</td><td role="cell" data-label="Why">To host the shared audio</td></tr>
       <tr role="row"><td role="cell" data-label="Data">The name and message you attach when you send a shyft to someone</td><td role="cell" data-label="When">When you send one</td><td role="cell" data-label="Why">Stored with the link so the recipient can see who it is from</td></tr>
       <tr role="row"><td role="cell" data-label="Data">Usage counters and your remaining credits</td><td role="cell" data-label="When">Every AI request</td><td role="cell" data-label="Why">To keep you inside the free allowance and to stop runaway costs</td></tr>
       <tr role="row"><td role="cell" data-label="Data">Crash, freeze and performance diagnostics</td><td role="cell" data-label="When">When the app crashes, hangs or errors &mdash; and continuously while you use the app, for performance traces</td><td role="cell" data-label="Why">To find faults and keep the app working</td></tr>
@@ -70,13 +70,13 @@
   </div>
 
   <div class="measure">
-  <h3>Apple Health stays on your device</h3>
-  <p>If you grant access, Shyft reads heart rate and heart rate variability, resting heart rate, respiratory rate, steps, workouts and sleep from Apple Health, and uses them on your device to decide which moment to suggest. Those readings are not sent to our servers and are not included in your account backup. Shyft never writes anything into Apple Health. You can withdraw access at any time in <em>Settings &rarr; Privacy &amp; Security &rarr; Health</em>.</p>
+  <h3>Apple Health</h3>
+  <p>Shyft does not read anything from Apple Health and never writes anything into it. This version does not ask for that access at all.</p>
 
   <h3>Calendar, microphone, speech and motion</h3>
   <ul>
-    <li><strong>Calendar</strong> &mdash; read on your device so Shyft can offer a moment before a meeting and understand the shape of your week. Your event titles are not sent to our servers. With your separate permission, Shyft can also add a scheduled shyft to your calendar.</li>
-    <li><strong>Microphone</strong> &mdash; used when you record a voice note and when you speak to Shyft to describe what you need.</li>
+    <li><strong>Calendar</strong> &mdash; Shyft does not read your calendar. With your permission it can add a shyft you have scheduled to your calendar, and that is the only calendar access it uses.</li>
+    <li><strong>Microphone</strong> &mdash; used when you record a shyft in your own voice and when you speak to Shyft to describe what you need.</li>
     <li><strong>Speech recognition</strong> &mdash; what you say is turned into text using Apple&rsquo;s speech recognition. Depending on your device, language and the feature you are using, that audio may be processed on Apple&rsquo;s servers rather than on your device. The resulting text is then used like anything else you type: it can be sent to our AI providers to write your moment or to choose its artwork.</li>
     <li><strong>Motion</strong> &mdash; your iPhone&rsquo;s motion sensors are read on your device, to sense things like whether you are still, restless or lying down, which helps time suggestions. iOS does not require a permission for this kind of reading, and motion readings are not sent to our servers.</li>
   </ul>
@@ -88,7 +88,6 @@
   <ul>
     <li>We do not track you across other apps or websites, and we show no advertising. There is no advertising SDK and no third-party product-analytics or attribution SDK in the app; the one third-party SDK we use is for the crash and performance diagnostics described above.</li>
     <li>We do not sell or rent your personal data, and we do not share it with data brokers.</li>
-    <li>We do not send your Apple Health readings to our servers or to anyone else.</li>
     <li>Feedback you send about a moment is stored without your user ID, in an anonymous feed that is not private. We cannot find, correct or delete an individual piece of it unless you can quote what you wrote. Please do not put personal details in it.</li>
   </ul>
 
@@ -96,9 +95,9 @@
   <ul>
     <li><strong>Supabase</strong> &mdash; your account and the synced library described above.</li>
     <li><strong>Cloudflare</strong> &mdash; our API, the usage counters, share and gift links, and storage for the audio and artwork we generate for you.</li>
-    <li><strong>Anthropic</strong> &mdash; receives what you write or say when you ask for a moment, your search queries, and the short profile built from your past sessions, and writes the script.</li>
+    <li><strong>Anthropic</strong> &mdash; receives what you write or say when you ask for a moment, and the short profile built from your past sessions, and writes the script.</li>
     <li><strong>OpenAI</strong> &mdash; draws the artwork. It receives only a short description of the scene, written by Anthropic&rsquo;s model; your own words are not passed to it.</li>
-    <li><strong>ElevenLabs</strong> &mdash; turns the finished script into speech. If you ask Shyft to re-voice one of your own recordings, ElevenLabs also receives that recording itself.</li>
+    <li><strong>ElevenLabs</strong> &mdash; turns the finished script into speech.</li>
     <li><strong>Sentry</strong> &mdash; crash, freeze and performance diagnostics.</li>
     <li><strong>Apple</strong> &mdash; the App Store handles your purchase and subscription, and we never see your payment details. If iCloud is switched on, Apple also holds a synced copy of your library and settings, and your recordings sit in your own iCloud Drive. Apple&rsquo;s speech recognition receives the audio described above.</li>
   </ul>
@@ -110,10 +109,10 @@
   <ul>
     <li><strong>Performance of a contract</strong> &mdash; running your account, syncing your library, and creating and delivering the content you ask for, including sending what you write or say to our AI providers when you ask Shyft to make something for you.</li>
     <li><strong>Legitimate interests</strong> &mdash; keeping the app stable and secure, and preventing abuse of the generation features.</li>
-    <li><strong>Consent</strong> &mdash; access to Apple Health, your calendar, the microphone and notifications. You can withdraw any of these at any time in iOS Settings; withdrawing consent stops that feature, not the whole app, and does not affect anything done before you withdrew it.</li>
+    <li><strong>Consent</strong> &mdash; permission to add a shyft to your calendar, and access to the microphone and to notifications. You can withdraw any of these at any time in iOS Settings; withdrawing consent stops that feature, not the whole app, and does not affect anything done before you withdrew it.</li>
     <li><strong>Explicit consent</strong> &mdash; where what you write or say describes your health or state of mind, we ask for your explicit consent before it is sent to our AI providers.</li>
   </ul>
-  <p>Some of Shyft&rsquo;s suggestions are produced automatically, including one that can prepare a new moment for you without you asking. These decide which piece of audio to offer you, and when. They produce no legal effect and nothing similarly significant, so the restrictions on significant automated decisions in UK GDPR Articles 22A&ndash;22D do not apply.</p>
+  <p>Some of Shyft&rsquo;s suggestions are produced automatically. These decide which piece of audio to offer you, and when. They produce no legal effect and nothing similarly significant, so the restrictions on significant automated decisions in UK GDPR Articles 22A&ndash;22D do not apply.</p>
 
   <h2 id="retention">7. How long we keep it</h2>
   <ul>
@@ -146,7 +145,7 @@
   <p><strong>If you are unhappy.</strong> You can complain to us directly at <a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a>. We will acknowledge your complaint within 30 days and respond without undue delay. You can also complain to the UK Information Commissioner&rsquo;s Office at <a href="https://ico.org.uk/make-a-complaint/">ico.org.uk</a>, or to the data protection authority where you live.</p>
 
   <h2 id="children">10. Children</h2>
-  <p>Shyft is not intended for children under {{MINIMUM_AGE}}, and we do not knowingly collect data from them. If you believe a child has given us personal data, contact us and we will delete it as the law requires.</p>
+  <p>Shyft is not intended for children under 13, and we do not knowingly collect data from them. If you believe a child has given us personal data, contact us and we will delete it as the law requires.</p>
 
   <h2 id="security">11. Security, and what to put in</h2>
   <p>Your data travels over encrypted connections, and the database enforces per-user access rules designed to ensure one account cannot read another&rsquo;s &mdash; the anonymous feedback feed described in section 4 is the exception, which is why it carries no user ID. Your sign-in credentials are held in the iOS Keychain on your device.</p>
