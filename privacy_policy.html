@@ -13,7 +13,7 @@
 <div class="page">
 
   <h1>Privacy Policy</h1>
-  <p class="meta">Effective from 12 September 2026 &middot; Applies to the Shyft iOS app and its widget</p>
+  <p class="meta">Effective from 27 October 2026 &middot; Applies to the Shyft iOS app and its widget</p>
 
   <div class="measure" id="content">
   <p>Shyft helps you take a short guided moment&nbsp;&mdash; a &ldquo;shyft&rdquo;&nbsp;&mdash; to change how you feel. This policy explains what the app stores, what leaves your device, and who processes it. We have tried to describe what the app actually does rather than write something generic, as the app works at the effective date above. If you think something is missing or wrong, please tell us.</p>
@@ -41,7 +41,7 @@
     <li>Postal address: {{POSTAL_ADDRESS}}</li>
     <li>Contact for privacy questions, rights requests and complaints: <a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a></li>
   </ul>
-  <p>Shyft is sold in the United Kingdom, the United States, Canada and Australia. We are based in the United Kingdom, so UK data protection law governs what we do with your data, and we hold ourselves to that standard wherever you live. If you are outside the UK you keep the rights your own law gives you; section 9 explains how to exercise them and where to complain.</p>
+  <p>Shyft is available in the United Kingdom, the United States, Canada and Australia. We are based in the United Kingdom, so UK data protection law governs what we do with your data, and we hold ourselves to that standard wherever you live. If you are outside the UK you keep the rights your own law gives you; section 9 explains how to exercise them and where to complain.</p>
 
   <h2 id="account">2. You need an account</h2>
   <p>After the introduction, Shyft asks you to sign in with Apple or Google. An account is what lets your library, streaks and settings follow you to another device. The one thing that works without signing in is opening a shyft that someone has shared or gifted to you.</p>
@@ -64,14 +64,19 @@
       <tr role="row"><td role="cell" data-label="Data">A short profile we build from your past sessions &mdash; your first name, your occupation, the people and pressures you have mentioned, recent events, and one-line summaries of your last few shyfts with your ratings</td><td role="cell" data-label="When">Sent with each AI request</td><td role="cell" data-label="Why">So a new moment follows on from the last one instead of starting cold</td></tr>
       <tr role="row"><td role="cell" data-label="Data">Audio you record</td><td role="cell" data-label="When">When you share a moment you made</td><td role="cell" data-label="Why">To host the shared audio</td></tr>
       <tr role="row"><td role="cell" data-label="Data">The name and message you attach when you send a shyft to someone</td><td role="cell" data-label="When">When you send one</td><td role="cell" data-label="Why">Stored with the link so the recipient can see who it is from</td></tr>
-      <tr role="row"><td role="cell" data-label="Data">Usage counters and your remaining credits</td><td role="cell" data-label="When">Every AI request</td><td role="cell" data-label="Why">To keep you inside your monthly allowance and to stop runaway costs</td></tr>
-      <tr role="row"><td role="cell" data-label="Data">Your subscription record: which plan you hold, when it started and when it ends or ended, the amount and currency Apple charged you, the App Store country you bought it in, the App Store transaction identifiers, and the events the App Store reports about it (renewal, cancellation, refund, billing problem)</td><td role="cell" data-label="When">When you subscribe, and whenever the App Store reports a change</td><td role="cell" data-label="Why">To know whether you are a subscriber and how many shyfts you may make this month. We never see your card or payment details</td></tr>
+      <tr role="row"><td role="cell" data-label="Data">Usage counters and how many of your three free shyfts you have used</td><td role="cell" data-label="When">Every AI request</td><td role="cell" data-label="Why">To keep count of your free shyfts and to stop runaway costs</td></tr>
+      <tr role="row"><td role="cell" data-label="Data">A one-way hash of the identifier Apple or Google gives us for your account, and how many free shyfts the account had used</td><td role="cell" data-label="When">When you delete an account that had used any of its free shyfts</td><td role="cell" data-label="Why">So that deleting your account and signing in again does not give you three more free shyfts</td></tr>
       <tr role="row"><td role="cell" data-label="Data">Crash, freeze and performance diagnostics</td><td role="cell" data-label="When">When the app crashes, hangs or errors &mdash; and continuously while you use the app, for performance traces</td><td role="cell" data-label="Why">To find faults and keep the app working</td></tr>
+      <tr role="row"><td role="cell" data-label="Data">How you use the app: which introduction screens you saw or skipped, the topics you picked (never the health-related ones), where you heard about Shyft and any creator you name there, when you sign in, which rows your home screen showed, which shyfts you start and from where, when you open Create, and when the app is installed, updated, opened and closed. With each of these: a random ID for this installation, your account ID once you sign in, a session ID, and your device model and screen size, iOS and app version, whether it is a test build, language, time zone, region setting and whether you are on Wi-Fi or mobile data</td><td role="cell" data-label="When">While you use the app, unless you turn off <em>Share usage analytics</em></td><td role="cell" data-label="Why">To see which parts of Shyft help and which do not, so we can improve them, and to try out changes to the introduction and the home screen</td></tr>
     </tbody>
   </table>
   </div>
 
   <div class="measure">
+  <h3>Your three free shyfts</h3>
+  <p>Shyft is free to use. Every account can create three personalised shyfts free, for good &mdash; three in all, not three a month &mdash; and the library of ready-made shyfts is free as well. We count the free ones on our server, against your account. If we ever add paid features, we will update this policy before they appear.</p>
+  <p>Deleting your account does not reset your free shyfts. If the account had used any of them, deletion leaves one record behind: a one-way hash of the identifier Apple or Google gives us for that account, made with a secret key held only in our database, together with the number of free shyfts it had used. That way, signing in again with the same Apple or Google account carries on from the same count instead of starting again with three. The record holds nothing else &mdash; no name, no email address, no account ID and nothing you made. It cannot be turned back into the identifier; it can only be matched again if the same Apple or Google account signs in to Shyft. We keep it for 24 months after the deletion and then delete it. Our legal basis is legitimate interests: preventing abuse of the free shyfts (section 6).</p>
+
   <h3>Apple Health</h3>
   <p>Shyft does not read anything from Apple Health and never writes anything into it. This version does not ask for that access at all.</p>
 
@@ -84,43 +89,50 @@
   </ul>
 
   <h3>Diagnostics can include a screenshot</h3>
-  <p>Reports about crashes, freezes and errors include a screenshot and a description of the screen at that moment, so we can see what went wrong. Anything visible on screen can appear in it, including text you had written and, on the account screen, your email address. Reports carry your account ID; we do not send your name or email address as separate fields. We also collect performance traces, which include the addresses of the requests the app makes.</p>
+  <p>Reports about crashes, freezes and errors include a screenshot, with text and images masked out, and a description of the screen&rsquo;s layout at that moment, so we can see what went wrong. Reports carry your account ID; we do not send your name or email address as separate fields. We also collect performance traces, which include the addresses of the requests the app makes.</p>
+
+  <h3>Usage analytics</h3>
+  <p>Shyft uses PostHog, an analytics service, to record the steps in the table above, so we can see which parts of the app work and improve the rest. We use the same service to change the words of the introduction and what the home screen shows, and in what order, without an app update, and sometimes to show two versions to different people to see which works better.</p>
+  <p>To do this, the analytics code keeps random identifiers for this installation on your phone until you delete the app. They are not your advertising identifier, and no other app can read them. Once you sign in, what you do is linked to your account ID &mdash; including what you did in the introduction before you signed in. When you sign out, the app starts recording under a new random identifier. We do not send your name or email address with it.</p>
+  <p>PostHog never receives what you write in Create or say aloud, or your recordings. It never receives the topics you pick that touch on health &mdash; grief, anxiety, low mood, drinking, urges and cravings, gambling, food and eating, ADHD and OCD &mdash; and when you start a shyft filed under one of those topics, it records only that a shyft was started, not which one. If you name a creator on the &ldquo;where did you hear about us&rdquo; screen, that name is sent as you typed it (up to 60 characters). PostHog receives your IP address as part of the connection; we have set it not to work out your location from it.</p>
+  <p><strong>Turning it off.</strong> Usage analytics is on unless you turn it off, in <em>Settings &rarr; Privacy &rarr; Share usage analytics</em>. When it is off, the analytics code is not started at all, so nothing more is sent to PostHog and the introduction and home screen show their standard version. Turning it off stops new data; it does not delete what was already sent (section 8).</p>
 
   <h2 id="not-do">4. What we do not do</h2>
   <ul>
-    <li>We do not track you across other apps or websites, and we show no advertising. There is no advertising SDK and no attribution SDK in the app; the two third-party SDKs we use are for the crash and performance diagnostics described above and for handling your subscription (section 5).</li>
+    <li>We do not track you across other apps or websites, and we show no advertising. There is no advertising SDK and no attribution SDK in the app. The third-party SDKs that send data from the app are Sentry, for the crash and performance diagnostics described above, and PostHog, for the usage analytics described above (section 5).</li>
     <li>We do not sell or rent your personal data, and we do not share it with data brokers.</li>
     <li>Feedback you send about a moment is stored without your user ID, in an anonymous feed that is not private. We cannot find, correct or delete an individual piece of it unless you can quote what you wrote. Please do not put personal details in it.</li>
   </ul>
 
   <h2 id="processors">5. Who processes data on our behalf</h2>
   <ul>
-    <li><strong>Supabase</strong> &mdash; your account and the synced library described above.</li>
+    <li><strong>Supabase</strong> &mdash; your account, the synced library described above, the count of your free shyfts, and the hash kept after an account is deleted (section 3).</li>
     <li><strong>Cloudflare</strong> &mdash; our API, the usage counters, share and gift links, and storage for the audio and artwork we generate for you.</li>
     <li><strong>Anthropic</strong> &mdash; receives what you write or say when you ask for a moment, and the short profile built from your past sessions, and writes the script.</li>
     <li><strong>OpenAI</strong> &mdash; draws the artwork. It receives only a short description of the scene, written by Anthropic&rsquo;s model; your own words are not passed to it.</li>
     <li><strong>ElevenLabs</strong> &mdash; turns the finished script into speech.</li>
     <li><strong>Sentry</strong> &mdash; crash, freeze and performance diagnostics.</li>
-    <li><strong>RevenueCat</strong> &mdash; manages your subscription: it receives your account ID and the App Store&rsquo;s record of your purchase, tells us whether your subscription is active, and notifies us when it renews, is cancelled or is refunded. It never receives your card or payment details.</li>
+    <li><strong>PostHog</strong> &mdash; usage analytics, and the settings that let us change the introduction and the home screen without an update (section 3). We use PostHog&rsquo;s EU service, hosted in Frankfurt, Germany. PostHog, Inc. is a US company, and its staff may access the data from outside the UK and the EU, for example to give support. See <a href="https://posthog.com/privacy">PostHog&rsquo;s privacy policy</a>.</li>
   </ul>
-  <p><strong>Apple is not one of the processors above.</strong> The App Store is the seller of your subscription: Apple takes your payment and holds your payment details, which we never see, and it decides its own purposes for that information under its own privacy policy rather than acting on our instructions. If iCloud is switched on, Apple also holds a synced copy of your library and settings, and your recordings sit in your own iCloud Drive. Apple&rsquo;s speech recognition receives the audio described above.</p>
+  <p><strong>Apple is not one of the processors above.</strong> If you sign in with Apple, Apple handles that sign-in under its own privacy policy rather than acting on our instructions. If iCloud is switched on, Apple also holds a synced copy of your library and settings, and your recordings sit in your own iCloud Drive. Apple&rsquo;s speech recognition receives the audio described above.</p>
   <p>One more, outside the app: the web page that plays a shyft someone shared with you loads its fonts from Google (Google Fonts, including fonts.gstatic.com) and Fontshare, so opening a shared link discloses your IP address to those services.</p>
-  <p>Each of the providers listed above processes data on our behalf under a written data processing agreement. Some are based outside the UK, mainly in the United States; for those transfers we rely on the safeguards in our agreements with them, such as the UK International Data Transfer Addendum to the EU standard contractual clauses. You can ask us for more detail about the safeguards that apply to a particular provider.</p>
+  <p>Each of the providers listed above processes data on our behalf under a written data processing agreement. Some are based outside the UK, mainly in the United States; for those transfers we rely on the safeguards in our agreements with them, such as the UK International Data Transfer Addendum to the EU standard contractual clauses and, where a provider takes part in it, the UK Extension to the EU&ndash;US Data Privacy Framework; PostHog relies on both. You can ask us for more detail about the safeguards that apply to a particular provider.</p>
   <p>Which providers we use may change; when one is replaced, this page is updated as described in section 13. This policy covers only Shyft. It does not cover Apple, Google, or any other site or service you reach from a link in the app or on this page; those have their own privacy policies.</p>
 
   <h2 id="legal-bases">6. Our legal bases (UK GDPR)</h2>
   <ul>
     <li><strong>Performance of a contract</strong> &mdash; running your account, syncing your library, and creating and delivering the content you ask for, including sending what you write or say to our AI providers when you ask Shyft to make something for you.</li>
-    <li><strong>Legitimate interests</strong> &mdash; keeping the app stable and secure, and preventing abuse of the generation features.</li>
+    <li><strong>Legitimate interests</strong> &mdash; keeping the app stable and secure, and preventing abuse of the generation features, including keeping the hash described in section 3 after you delete your account, so that the free shyfts cannot be claimed a second time; and understanding how the app is used so we can improve it (usage analytics, section 3), which you can turn off at any time.</li>
     <li><strong>Consent</strong> &mdash; permission to add a shyft to your calendar, and access to the microphone and to notifications. You can withdraw any of these at any time in iOS Settings; withdrawing consent stops that feature, not the whole app, and does not affect anything done before you withdrew it.</li>
     <li><strong>Explicit consent</strong> &mdash; where what you write or say describes your health or state of mind, we ask for your explicit consent before it is sent to our AI providers.</li>
   </ul>
+  <p>The random identifiers the analytics code keeps on your phone are there so we can produce statistics about how Shyft is used and test improvements to it &mdash; including deciding which version of the introduction or home screen your phone is shown when we try two. UK law allows that without asking first, provided you are told about it, as here, and can object free of charge &mdash; which you can, in <em>Settings &rarr; Privacy &rarr; Share usage analytics</em>.</p>
   <p>Some of Shyft&rsquo;s suggestions are produced automatically. These decide which piece of audio to offer you, and when. They produce no legal effect and nothing similarly significant, so the restrictions on significant automated decisions in UK GDPR Articles 22A&ndash;22D do not apply.</p>
 
   <h2 id="retention">7. How long we keep it</h2>
   <ul>
     <li><strong>Your account and synced library</strong> &mdash; until you delete your account.</li>
-    <li><strong>Your subscription record</strong> &mdash; until you delete your account. We keep each change the App Store reports as we received it, which includes the amount and currency charged. RevenueCat keeps its own copy under its retention schedule.</li>
+    <li><strong>The record that an account used its free shyfts</strong> &mdash; if you delete an account that had used any, the hash described in section 3 and the number used are kept for 24 months from the deletion, then deleted.</li>
     <li><strong>Audio and artwork we generated for you</strong> &mdash; kept in our storage under a random file name. It is not listed anywhere and is not held against your account, but anyone holding the exact link can play it. We have no automated process that deletes these files; if you send us the exact links, we will remove them.</li>
     <li><strong>Links you share from our library</strong> &mdash; expire automatically after 24 hours.</li>
     <li><strong>Links to moments you made yourself</strong> &mdash; stay live until you revoke them, so that the person you sent one to can still open it later.</li>
@@ -128,17 +140,20 @@
     <li><strong>Usage counters used to prevent abuse</strong> &mdash; expire on their own, at most after 35 days.</li>
     <li><strong>Feedback</strong> &mdash; kept indefinitely, without any user ID.</li>
     <li><strong>Diagnostics</strong> &mdash; kept on our diagnostics provider&rsquo;s retention schedule, typically around 90 days.</li>
+    <li><strong>Usage analytics</strong> &mdash; kept by PostHog for one year, the period our PostHog plan sets; PostHog does not offer a shorter one. We delete yours sooner if you ask (section 8). The random identifiers the analytics code keeps on your phone stay until you delete the app.</li>
   </ul>
   <p>We may keep information for longer where the law requires it, or where we need it to establish, exercise or defend a legal claim.</p>
 
   <h2 id="deletion">8. Deleting your data</h2>
-  <p>You can delete your account in the app, in <em>Settings &rarr; Account &rarr; Delete account</em>. That removes your profile, your synced library, your credit balance and your generation history from our database, and it cannot be undone. Anything held only on your device goes when you delete the app; recordings saved to your iCloud Drive stay there until you delete them yourself.</p>
-  <p>Two things deliberately survive it:</p>
+  <p>You can delete your account in the app, in <em>Settings &rarr; Account &rarr; Delete account</em>. That removes your profile, your synced library, your free-shyft count and your generation history from our database, and it cannot be undone. Anything held only on your device goes when you delete the app; recordings saved to your iCloud Drive stay there until you delete them yourself.</p>
+  <p>Four things deliberately survive it:</p>
   <ul>
     <li>The audio and artwork we generated for you. Those files are stored under random names and are not held against your account, so account deletion does not reach them. If you can give us the exact links, we will remove them on request.</li>
     <li>Any share links you have created. Revoke those first, in <em>Settings &rarr; Shared by You</em>. Revoking deletes the uploaded audio as well. That list lives on the device you sent the links from &mdash; if you have since reinstalled the app or changed phone, the app can no longer revoke them.</li>
+    <li>The record of your free shyfts, if you used any: the one-way hash of your Apple or Google account identifier and the number you used, described in section 3. It is kept for 24 months so that a new account on the same sign-in does not start again with three, and it cannot be turned back into your identifier.</li>
+    <li>Usage analytics already sent to PostHog (section 3). Deleting your account does not delete it: it stays with PostHog, linked to an account ID that no longer leads to an account, until the end of the period in section 7. We will delete it if you ask. Ask before you delete your account if you can, because afterwards we no longer hold anything that tells us which account ID was yours. Anything recorded while you were signed out is not linked to your account, so we cannot find it.</li>
   </ul>
-  <p>For either of those, or if you would rather we carried out the deletion, you may contact us at <a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a>, quoting the share link where there is one. We handle such requests as erasure requests under section 9.</p>
+  <p>For the first two, for usage analytics, or if you would rather we carried out the deletion, you may contact us at <a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a>, quoting the share link where there is one. We handle such requests as erasure requests under section 9.</p>
 
   <h2 id="rights">9. Your rights</h2>
   <p>You can ask us for a copy of the personal data we hold about you, and you can ask us to correct it, delete it, restrict how we use it, or object to how we use it. You can also ask us to send your data to another service where that applies, and withdraw consent where we rely on it. Write to <a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a>.</p>
@@ -146,6 +161,7 @@
   <p><strong>When the month starts.</strong> If we need to confirm who you are before we can safely act, the month starts once we have what we asked for. Separately, if you have asked for a copy of your data and we reasonably need you to tell us what you are looking for, we will ask &mdash; and the clock pauses from the day we ask until the day you reply, then picks up where it left off.</p>
   <p><strong>What we search.</strong> When you ask for a copy of your data, you are entitled to what we can provide after a reasonable and proportionate search.</p>
   <p><strong>Cost.</strong> Responding is free. If a request is manifestly unfounded or excessive, or if you ask for further copies of data we have already given you, we may charge a reasonable fee or decline to act &mdash; and if we do, we will tell you why and how to challenge it.</p>
+  <p><strong>Objecting to usage analytics.</strong> We rely on our legitimate interests for usage analytics, and you have the right to object to it at any time. The quickest way is to turn off <em>Settings &rarr; Privacy &rarr; Share usage analytics</em>, which stops it straight away; you can also write to us.</p>
   <p><strong>If you are unhappy.</strong> You can complain to us directly at <a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a>. We will acknowledge your complaint within 30 days and respond without undue delay. You can also complain to the UK Information Commissioner&rsquo;s Office at <a href="https://ico.org.uk/make-a-complaint/">ico.org.uk</a>, or to the data protection authority where you live.</p>
 
   <h2 id="children">10. Children</h2>
